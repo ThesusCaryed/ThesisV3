@@ -21,7 +21,7 @@ from IPython.display import Image
 print('Setup complete. Using torch %s %s' % (torch.__version__, torch.cuda.get_device_properties(0) if torch.cuda.is_available() else 'CPU'))
 
 # Set up environment
-os.environ["DATASET_DIRECTORY"] = "../ThesisV3"
+os.environ["DATASET_DIRECTORY"] = r"C:\Users\Acer\Desktop\ThesisV3\ThesisV3"
 
 # Initialize Roboflow
 # rf = Roboflow(model_format="yolov5", api_key="AVzps2ggtt5RXGeBEglG")
@@ -36,12 +36,12 @@ dataset = version.download("yolov5")
 
 
 # Train YOLOv5 model
-subprocess.run(["python", "train.py", "--img", "416", "--batch", "16", "--epochs", "20", "--data", f"{dataset.location}/data.yaml", "--weights", "yolov5s.pt", "--cache"])
+#subprocess.run(["python", "train.py", "--img", "416", "--batch", "16", "--epochs", "20", "--data", f"{dataset.location}/data.yaml", "--weights", "yolov5s.pt", "--cache"])
 
 # Display training results
-from utils.plots import plot_results  # Plot results.txt as results.png
-Image(filename='runs/train/exp/results.png', width=1000)  # View results.png
+#from utils.plots import plot_results  # Plot results.txt as results.png
+#Image(filename='runs/train/exp/results.png', width=1000)  # View results.png
 
 # Display ground truth training data
-print("GROUND TRUTH TRAINING DATA:")
-Image(filename='runs/train/exp/val_batch0_labels.jpg', width=900)
+#print("GROUND TRUTH TRAINING DATA:")
+#Image(filename='runs/train/exp/val_batch0_labels.jpg', width=900)

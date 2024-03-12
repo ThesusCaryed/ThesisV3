@@ -1,0 +1,12 @@
+names:
+- Face
+nc: 1
+roboflow:
+  license: CC BY 4.0
+  project: face-detection-mgde2
+  url: https://universe.roboflow.com/thesis-cg8kk/face-detection-mgde2/dataset/1
+  version: 1
+  workspace: thesis-cg8kk
+test: ../test/images
+train: C:\Users\Acer\Desktop\ThesisV3\ThesisV3/Face-Detection-1/train/images
+val: C:\Users\Acer\Desktop\ThesisV3\ThesisV3/Face-Detection-1/valid/images
