@@ -1,6 +1,7 @@
 from tkinter import *
 from PIL import Image, ImageTk
 import customtkinter
+import subprocess
 from developer_functionality import developer_functionality  # Import the function
 
 # Set appearance mode and default color theme
@@ -28,7 +29,7 @@ class Face_Recognition:
         # Set background color to beige
         self.root.configure(bg="#9DC3E2")  # Use hexadecimal color code for beige
 
-        bg_image = Image.open(r"C:\Users\edmar\OneDrive\Documents\face_recognition\assets\bg1.jpg")
+        bg_image = Image.open(r"./assets/bg1.jpg")
         bg_image = bg_image.resize((900, 480), Image.LANCZOS)
         self.photoimg_bg = ImageTk.PhotoImage(bg_image)
         self.canvas = Canvas(root, width=900, height=480, bg="#242424", bd=0, highlightthickness=0)  # Set canvas background color to transparent
