@@ -58,7 +58,7 @@ class ObjectDetection:
                 break
 
 # Provide the path to your trained model
-model_path = r'C:\Users\Acer\Desktop\ThesisV3\ThesisV3\yolov5\runs\train\exp4\weights\best.pt'
+model_path = r'/yolov5/runs/train/exp4/weights/best.pt'
 
 # Create an object detection instance with your model path
 detection = ObjectDetection(model_path)
