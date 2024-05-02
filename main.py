@@ -2,7 +2,11 @@ from tkinter import *
 from PIL import Image, ImageTk
 import customtkinter
 import subprocess
+import tkinter as tk
 from developer_functionality import developer_functionality  # Import the function
+from results_display import ResultsWindow
+from testmodel import main as run_face_recognition
+import threading
 
 # Set appearance mode and default color theme
 customtkinter.set_appearance_mode("System")
@@ -10,9 +14,16 @@ customtkinter.set_default_color_theme("blue")
 
 def on_image_recognizer_click():
     print("Image Recognizer clicked")
+    thread = threading.Thread(target=run_face_recognition)
+    thread.start()
 
 def on_results_click():
     print("Results button clicked")
+    results_root = tk.Toplevel()  # Creates a new top-level window
+    results_root.title("Results Display")
+    results_app = ResultsWindow(results_root)  # Initializes the results window
+    results_root.mainloop()  # Ensures the new window's event loop runs
+    print("Results window should now be open.")
 
 def on_developer_click():
     developer_functionality(root)
@@ -31,15 +42,15 @@ class Face_Recognition:
         # Set background color to beige
         self.root.configure(bg="#9DC3E2")  # Use hexadecimal color code for beige
 
-        bg_image = Image.open(r"./assets/bg1.jpg")
+        bg_image = Image.open(r"assets\aaa.jpg")
         bg_image = bg_image.resize((screen_width, screen_height), Image.LANCZOS)
         self.photoimg_bg = ImageTk.PhotoImage(bg_image)
         self.canvas = Canvas(root, width=screen_width, height=screen_height, bg="#242424", bd=0, highlightthickness=0)  # Set canvas background color to transparent
         # Calculate the center position of the canvas
         center_x = (screen_width - bg_image.width) // 2  # Remove parentheses from bg_image.width
         center_y = (screen_height - bg_image.height) // 2  # Remove parentheses from bg_image.height
-        x = -10  # Adjust the x-coordinate as needed
-        y = 100   # Adjust the y-coordinate as needed
+        x = 0  # Adjust the x-coordinate as needed
+        y = 0   # Adjust the y-coordinate as needed
         self.canvas.create_image(x, y, anchor=NW, image=self.photoimg_bg)
         self.canvas.pack(side=TOP)
 
