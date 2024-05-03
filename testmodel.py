@@ -97,7 +97,7 @@ def main():
         for (*xyxy, conf, cls) in results.xyxy[0]:
             if conf > MIN_CONFIDENCE:
                 x1, y1, x2, y2 = map(int, xyxy)
-                boxes.append([x1, y1, x2, y2])
+                boxes.append([x1, y1, x2-x1, y2-y1])
                 scores.append(conf)
 
         if boxes:
@@ -107,16 +107,20 @@ def main():
             selected_boxes = boxes[indices]
 
             for box in selected_boxes:
-                x1, y1, x2, y2 = box
-                face = frame[y1:y2, x1:x2]
+                x1, y1, w, h = box
+                face = frame[y1:y1+h, x1:x1+w]
                 face_gray = cv2.cvtColor(face, cv2.COLOR_BGR2GRAY)
                 face_resized = cv2.resize(face_gray, (200, 200))
                 serial, confidence = recognizer.predict(face_resized)
 
-                name = "Unknown"  # Default name if recognition fails
+                  # Default name if recognition fails
                 if confidence < MIN_CONFIDENCE_FOR_RECOGNITION:
                     name = name_mapping.get(serial, "Unknown")
-                    if name != "Unknown":
+                    label = f"ID {serial}: {name}"
+                else:
+                    label = "Unknown"
+
+                if label != "Unknown":
                         current_time = get_philippine_time()
                         timestamp = current_time.strftime('%Y-%m-%d %H:%M:%S')
                         if name not in last_saved_time or (current_time - last_saved_time.get(name, datetime.min)).total_seconds() > 30:
@@ -127,8 +131,8 @@ def main():
                             cv2.imwrite(os.path.join(RECOGNIZED_FACES_DIR, filename), frame)  # Save entire frame with timestamp
                             last_saved_time[name] = current_time
 
-                cv2.rectangle(frame, (x1, y1), (x2, y2), (0, 255, 0), 2)
-                cv2.putText(frame, name, (x1, y1 - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
+                cv2.rectangle(frame, (x1, y1), (x1 + w, y1 + h), (0, 255, 0), 2)
+                cv2.putText(frame, label, (x1, y1 - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
 
         cv2.imshow("Frame", frame)
         if cv2.waitKey(1) & 0xFF == ord('q'):
