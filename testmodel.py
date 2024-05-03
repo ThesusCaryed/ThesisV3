@@ -124,9 +124,9 @@ def main():
                         current_time = get_philippine_time()
                         timestamp = current_time.strftime('%Y-%m-%d %H:%M:%S')
                         if name not in last_saved_time or (current_time - last_saved_time.get(name, datetime.min)).total_seconds() > 30:
-                            # Draw timestamp at the bottom of the frame
+                            # Draw timestamp at the bottom of the frames
                             cv2.rectangle(frame, (0, frame.shape[0] - 40), (frame.shape[1], frame.shape[0]), (0, 0, 0), -1)
-                            cv2.putText(frame, timestamp, (10, frame.shape[0] - 10), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2)
+                            cv2.putText(frame, timestamp, (10, frame.shape[0] - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 2)
                             filename = f"{name}_{timestamp.replace(':', '-')}.jpg"
                             cv2.imwrite(os.path.join(RECOGNIZED_FACES_DIR, filename), frame)  # Save entire frame with timestamp
                             last_saved_time[name] = current_time
