@@ -34,7 +34,7 @@ def main():
         exit(1)
     
     count = 0
-    max_photos_per_user = 500
+    max_photos_per_user = 200
 
     try:
         while True:
@@ -48,7 +48,7 @@ def main():
 
             for *xyxy, conf, cls in results.xyxy[0]:
                 x1, y1, x2, y2 = map(int, xyxy)
-                if (x2 - x1) * (y2 - y1) < 5000:  # Check if detected face is large enough
+                if (x2 - x1) * (y2 - y1) < max_photos_per_user:  # Check if detected face is large enough
                     continue
                 count += 1
                 face_img = frame[y1:y2, x1:x2]
@@ -56,7 +56,7 @@ def main():
                 cv2.rectangle(frame, (x1, y1), (x2, y2), (50, 50, 255), 2)
 
             cv2.imshow("Frame", frame)
-            if cv2.waitKey(1) == ord('q') or count > 500:
+            if cv2.waitKey(1) == ord('q') or count > max_photos_per_user:
                 break
     finally:
         video.release()
