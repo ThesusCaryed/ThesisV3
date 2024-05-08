@@ -1,0 +1,2 @@
+to get back the push and commit
+git reset --soft HEAD~

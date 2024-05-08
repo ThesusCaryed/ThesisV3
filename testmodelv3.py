@@ -11,7 +11,7 @@ import time
 import pandas as pd
 
 # Configuration
-MODEL_PATH = 'yolov5\\runs\\train\\exp4\\weights\\best.pt'
+MODEL_PATH = 'yolov5\\runs\\train\\exp6\\weights\\best.pt'
 RECOGNIZER_PATH = 'Trainer.yml'
 USER_INFO_FILE = 'user_info.csv'
 RECOGNIZED_FACES_DIR = 'recognized_faces'

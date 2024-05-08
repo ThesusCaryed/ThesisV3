@@ -26,7 +26,7 @@ def ensure_directory_exists(path):
         os.makedirs(path)
 
 def main():
-    model_path = 'yolov5/runs/train/exp4/weights/best.pt'
+    model_path = 'yolov5/runs/train/exp6/weights/best.pt'
     model = load_model(model_path)
     video = initialize_video()
     

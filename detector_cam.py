@@ -11,7 +11,7 @@ class ObjectDetection:
 
     def load_model(self, model_path):
         # Path to the local YOLOv5 directory that includes 'hubconf.py'
-        local_model_path = r'C:\Users\edmar\OneDrive\Documents\ThesisV3-1\yolov5'
+        local_model_path = r'/yolov5'
     
         # Load the model using the correct directory path
         model = torch.hub.load(local_model_path, 'custom', path=model_path, source='local')
@@ -58,6 +58,6 @@ class ObjectDetection:
             cap.release()
             cv2.destroyAllWindows()
 
-model_path = r'C:\Users\edmar\OneDrive\Documents\ThesisV3-1\yolov5\runs\train\exp4\weights\best.pt'
+model_path = r'/yolov5/runs/train/exp6/weights/best.pt'
 detection = ObjectDetection(model_path)
 detection.run()
