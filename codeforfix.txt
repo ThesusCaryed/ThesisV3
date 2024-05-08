@@ -1,2 +1,7 @@
 to get back the push and commit
 git reset --soft HEAD~
+
+face recognizer cv2
+pip install opencv-python==4.7.0.68
+pip install opencv-contrib-python==4.7.0.68
+
