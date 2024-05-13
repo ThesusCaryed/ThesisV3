@@ -1,5 +1,6 @@
 from tkinter import Tk, Toplevel, Label, Button
 from PIL import Image, ImageTk
+import tkinter as tk
 
 def back_to_main(root, dev_window):
     # Destroy the developer window
@@ -13,10 +14,12 @@ def developer_functionality(root, bg_color="#1f2833"):
     # Hide the main application window while the developer window is open
     root.withdraw()
 
+    screen_width = root.winfo_screenwidth()
+    screen_height = root.winfo_screenheight()
     # Create a new window for developer functionality
     dev_window = Toplevel(root)
-    dev_window.title("Developer")
-    dev_window.geometry("700x400")
+    dev_window.title("Help")
+    dev_window.geometry(f"{screen_width}x{screen_height}+0+0")
     dev_window.configure(bg=bg_color)  # Set background color
 
     try:
@@ -26,22 +29,26 @@ def developer_functionality(root, bg_color="#1f2833"):
         photoimg1 = ImageTk.PhotoImage(img1)
 
         # Add widgets and functionality for the developer window here
-        label = Label(dev_window, text="Developer", font=("Poppins Bold", 20), bg=bg_color, fg="white")
-        label.grid(row=0, column=1, columnspan=3, pady=10)
+        label = Label(dev_window, text="Help", font=("Poppins Bold", 30), bg=bg_color, fg="white")
+        label.grid(row=0, column=1, columnspan=3, pady=30)
+
+        additional_text5 = Label(dev_window, text="Contact us:", font=("Poppins Regular", 25), bg=bg_color, fg="white")
+        additional_text5.grid(row=0, column=1, pady=(100, 0))
+
 
         # Image 1 and text
         image_label1 = Label(dev_window, image=photoimg1, bg=bg_color)
-        image_label1.grid(row=1, column=1, padx=(15, 10), pady=(50, 0), sticky="nsew")
+        image_label1.grid(row=1, column=1, padx=(15, 10), pady=(20, 0), sticky="nsew")
         text_label1 = Label(dev_window, text="Ryan C. Clavo", font=("Poppins Medium", 14), bg=bg_color, fg="white")
         text_label1.grid(row=2, column=1, pady=1)
 
         # Add additional text label under text_label1
-        additional_text1 = Label(dev_window, text="ryancana.clavo@bicol-u.edu.ph", font=("Poppins Regular", 10), bg=bg_color, fg="white")
-        additional_text1.grid(row=3, column=1, pady=2)
+        additional_text4 = Label(dev_window, text="ryancana.clavo@bicol-u.edu.ph", font=("Poppins Regular", 10), bg=bg_color, fg="white")
+        additional_text4.grid(row=3, column=1, pady=(1,0))
 
         # Image 2 and text
         image_label2 = Label(dev_window, image=photoimg1, bg=bg_color)
-        image_label2.grid(row=1, column=2, padx=(20, 10), pady=(50, 0), sticky="nsew")
+        image_label2.grid(row=1, column=2, padx=(20, 10), pady=(20, 0), sticky="nsew")
         text_label2 = Label(dev_window, text="Edmar L. Guevarra", font=("Poppins Medium", 14), bg=bg_color, fg="white")
         text_label2.grid(row=2, column=2, pady=10, padx=5)
 
@@ -51,7 +58,7 @@ def developer_functionality(root, bg_color="#1f2833"):
 
         # Image 3 and text
         image_label3 = Label(dev_window, image=photoimg1, bg=bg_color)
-        image_label3.grid(row=1, column=3, padx=(20, 10), pady=(50, 0), sticky="nsew")
+        image_label3.grid(row=1, column=3, padx=(20, 10), pady=(20, 0), sticky="nsew")
         text_label3 = Label(dev_window, text="Carlos Miguel O. Rada", font=("Poppins Medium", 14), bg=bg_color, fg="white", )
         text_label3.grid(row=2, column=3, pady=5)
 
