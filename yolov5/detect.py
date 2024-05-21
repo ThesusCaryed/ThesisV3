@@ -222,6 +222,12 @@ def run(
                     if save_crop:
                         save_one_box(xyxy, imc, file=save_dir / "crops" / names[c] / f"{p.stem}.jpg", BGR=True)
 
+            # Inside the function where detections are processed, add the following:
+        for i, det in enumerate(pred):  # detections per image
+            if len(det):
+                for *xyxy, conf, cls in reversed(det):
+                    print(f"Detected face with confidence: {conf:.2f}")
+
             # Stream results
             im0 = annotator.result()
             if view_img:

@@ -1,0 +1,20 @@
+Testing Metrics:
+Accuracy: 1.0
+Precision: 1.0
+Recall: 1.0
+F1 Score: 1.0
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           1       1.00      1.00      1.00       330
+           2       1.00      1.00      1.00       289
+           3       1.00      1.00      1.00       283
+           4       1.00      1.00      1.00       298
+
+    accuracy                           1.00      1200
+   macro avg       1.00      1.00      1.00      1200
+weighted avg       1.00      1.00      1.00      1200
+
+False Rejection Rate (FRR): 0.0
+False Acceptance Rate (FAR): 1.0

@@ -1,0 +1,17 @@
+Training Metrics:
+Accuracy: 1.0
+Precision: 1.0
+Recall: 1.0
+F1 Score: 1.0
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           1       1.00      1.00      1.00      1170
+           2       1.00      1.00      1.00      1211
+           3       1.00      1.00      1.00      1217
+           4       1.00      1.00      1.00      1202
+
+    accuracy                           1.00      4800
+   macro avg       1.00      1.00      1.00      4800
+weighted avg       1.00      1.00      1.00      4800
