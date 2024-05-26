@@ -22,7 +22,7 @@ params['weights'] = [convert_path(w) for w in params['weights']]
 # Define the parameters as a dictionary
 params = {
     'weights': ['yolov5/runs/train/exp6/weights/best.pt'],
-    'source': 'C:\\Users\\Acer\\Desktop\\ThesisV3\\ThesisV3\\Face-Detection-2\\test\\images',
+    'source': 'C:\\Users\\Acer\\Desktop\\ThesisV3\\ThesisV3\\M2024',
     'data': 'data/coco128.yaml',  # Make sure this points to your data configuration file
     'imgsz': [416, 416],
     'conf_thres': 0.4,
